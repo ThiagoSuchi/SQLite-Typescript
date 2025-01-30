@@ -10,7 +10,7 @@ export function createTable() {
             senha TEXT
         )
     `
-
+    // O método db.run é usado para executar comandos SQL que não retornam dados, como CREATE TABLE, INSERT, UPDATE e DELETE.
     db.run(query, (erro: Error) => {
         if (erro) {
             console.log(`Erro ao criar a tabela: ${erro.message}`);

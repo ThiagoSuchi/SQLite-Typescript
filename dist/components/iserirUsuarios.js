@@ -9,12 +9,12 @@ function createUsers(nome, email, senha) {
         usuario (nome, email, senha)
         VALUES (?, ?, ?)
     `;
-    app_1.db.run(query, [nome, email, senha], (erro) => {
+    app_1.db.run(query, [nome, email, senha], function (erro) {
         if (erro) {
             console.log(`Erro ao criar usuário: ${erro}`);
         }
         else {
-            console.log(`Usuario cadastrado com sucesso.`);
+            console.log(`Usuario de id ${this.lastID} cadastrado com sucesso.`);
         }
     });
 }

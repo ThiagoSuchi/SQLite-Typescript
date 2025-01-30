@@ -7,12 +7,13 @@ export function createUsers(nome: string, email: string, senha: string) {
         usuario (nome, email, senha)
         VALUES (?, ?, ?)
     `;
-
-    db.run(query, [nome, email, senha], (erro: Error) => {
+    //Callback: Recebe um erro (erro) se algo der errado. Se tudo correr bem, this.lastID contém o ID do último registro inserido.
+    // Valores: ['João', 'joao@example.com'] (substituem os ? no SQL).
+    db.run(query, [nome, email, senha], function(this: { lastID: number }, erro: Error) {
         if (erro) {
             console.log(`Erro ao criar usuário: ${erro}`);
         } else {
-            console.log(`Usuario cadastrado com sucesso.`);
+            console.log(`Usuario de id ${this.lastID} cadastrado com sucesso.`);
         }
     })
 }

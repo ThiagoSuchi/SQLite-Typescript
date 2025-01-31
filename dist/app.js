@@ -12,6 +12,9 @@ exports.db = new sqlite3.Database('./test.db', sqlite3.OPEN_READWRITE, (err) => 
     }
 });
 // createTable()
-// createUsers('Thiago', 'thiagaoo@gmail.com', 'thiagoHS3322@')
+// createUsers('Luciana', 'luciana@gmail.com', 'Luciaana@22')
+// alterUser(7, 'Maria Clara', 'mariazinha@gmail.com', 'mamariAA2345#')
 // listUser()
+// listUserID(7)
+// deletUser(6)
 // dropTableUser()

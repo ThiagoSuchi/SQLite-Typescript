@@ -1,7 +1,15 @@
 import { db } from "../app";
+import { validUser } from "../utils/validação";
 
 // criando usuarios
 export function createUsers(nome: string, email: string, senha: string) {
+    const validacao = validUser.safeParse({nome, email, senha})
+
+    if(!validacao.success) {
+        console.error('Erro de validação: ', validacao.error.format());
+        return
+    }
+    
     const query = `
         INSERT INTO 
         usuario (nome, email, senha)
